@@ -1,46 +1,46 @@
 // template_email.js
 
-import fs from 'fs';
-import path from 'path';
+import fs from "fs"
+import path from "path"
 
 export function generateEmailTemplate(data) {
-    const { weather, news, crypto, calendar, rss } = data;
-    const date = new Date().toISOString().split('T')[0];
-    const sections = [];
+  const { weather, news, crypto, calendar, rss } = data
+  const date = new Date().toISOString().split("T")[0]
+  const sections = []
 
-    // Only add sections that have data
-    if (weather) {
-        sections.push(`
+  // Only add sections that have data
+  if (weather) {
+    sections.push(`
             <h2>Weather Forecast</h2>
             <img src="${process.env.EMAIL_DOMAIN}/assets/weather-tile.png" alt="Weather Forecast" style="max-width: 100%; height: auto;">
-        `);
-    }
-    if (news) {
-        sections.push(`
+        `)
+  }
+  if (news) {
+    sections.push(`
             <h2>News Headlines</h2>
             <div>${news}</div>
-        `);
-    }
-    if (crypto) {
-        sections.push(`
+        `)
+  }
+  if (crypto) {
+    sections.push(`
             <h2>Bitcoin Price</h2>
             <div>${crypto}</div>
-        `);
-    }
-    if (calendar) {
-        sections.push(`
+        `)
+  }
+  if (calendar) {
+    sections.push(`
             <h2>Calendar Events</h2>
             <div>${calendar}</div>
-        `);
-    }
-    if (rss) {
-        sections.push(`
+        `)
+  }
+  if (rss) {
+    sections.push(`
             <h2>RSS Feeds</h2>
             <div>${rss}</div>
-        `);
-    }
+        `)
+  }
 
-    const emailContent = `
+  const emailContent = `
         <!DOCTYPE html>
         <html>
         <head>
@@ -52,18 +52,18 @@ export function generateEmailTemplate(data) {
         </head>
         <body>
             <h1>Daily Summary for ${date}</h1>
-            ${sections.join('\n')}
+            ${sections.join("\n")}
         </body>
         </html>
-    `.trim();
+    `.trim()
 
-    // Log the email content to a file
-    const logDir = path.join(process.cwd(), 'logs');
-    if (!fs.existsSync(logDir)) {
-        fs.mkdirSync(logDir);
-    }
-    const logFile = path.join(logDir, `email-${date}.html`);
-    fs.writeFileSync(logFile, emailContent);
+  // Log the email content to a file
+  const logDir = path.join(process.cwd(), "logs")
+  if (!fs.existsSync(logDir)) {
+    fs.mkdirSync(logDir)
+  }
+  const logFile = path.join(logDir, `email-${date}.html`)
+  fs.writeFileSync(logFile, emailContent)
 
-    return emailContent;
-} 
+  return emailContent
+}
