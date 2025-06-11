@@ -10,7 +10,9 @@ A simple Node.js app which can be set up to run as a CRON job.
 
 Copy the `.env.example` into an `.env` file and set up your defaults.
 
-Run `npm i` then `node main.js` to run the app.
+Run `npm i` then `npm run start` to run the app.
+
+It can take a while to send the email and return a response.
 
 ## Development
 

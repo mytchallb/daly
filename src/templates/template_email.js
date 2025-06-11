@@ -12,7 +12,7 @@ export function generateEmailTemplate(data) {
   if (weather) {
     sections.push(`
             <h2>Weather Forecast</h2>
-            <img src="${process.env.EMAIL_DOMAIN}/assets/weather-tile.png" alt="Weather Forecast" style="max-width: 100%; height: auto;">
+            <img src="${weather.base64}" alt="Weather Forecast" style="max-width: 100%; height: auto;">
         `)
   }
   if (news) {

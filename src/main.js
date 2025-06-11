@@ -12,8 +12,9 @@ import EmailService from "./services/email.js"
 async function generateDailySummary() {
   try {
     // Implement services one at a time
-    // const weather = await getWeather();
-    const weather = "weather test"
+    const weather = await getWeather()
+    // const weather = "weather test"
+
     // const news = await getNews();
     // const crypto = await getCryptoPrice();
     // const calendar = await getCalendarEvents();
@@ -27,6 +28,7 @@ async function generateDailySummary() {
       // calendar,
       // rss
     })
+    process.exit(0)
   } catch (error) {
     console.error("Failed to generate daily summary:", error.message)
     process.exit(1)

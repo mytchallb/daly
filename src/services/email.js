@@ -9,7 +9,10 @@ export default class EmailService {
 
   async sendDailySummary(data) {
     try {
-      const message = generateEmailTemplate(data)
+      // If data contains html property, use it directly
+      // Otherwise, generate template from the data
+      const message = data.html || generateEmailTemplate(data)
+
       if (config.settings.sendEmail === "true") {
         await this.transporter.sendMail({
           from: config.email.from,
