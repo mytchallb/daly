@@ -6,7 +6,15 @@
   "type": "module",
   "scripts": {
     "start": "node src/main.js",
-    "format": "prettier --write \"src/**/*.{js,ts,json,css,scss,md}\""
+    "format": "prettier --write \"src/**/*.{js,ts,json,css,scss,md}\"",
+    "test:weather": "node src/scripts/test-weather.js",
+    "test:rss": "node src/scripts/test-rss.js",
+    "test:news": "node src/scripts/test-news.js",
+    "test:crypto": "node src/scripts/test-crypto.js",
+    "test:calendar": "node src/scripts/test-calendar.js",
+    "test:email-template": "node src/scripts/test-email-template.js",
+    "test:send-email": "node src/scripts/test-send-email.js",
+    "test:all": "npm run test:weather && npm run test:rss && npm run test:news && npm run test:crypto && npm run test:calendar && npm run test:email-template"
   },
   "dependencies": {
     "dotenv": "^16.3.1",

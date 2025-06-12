@@ -5,7 +5,6 @@ export default {
     to: process.env.EMAIL_TO,
     from: process.env.EMAIL_FROM,
     subject: `Daily Summary - ${new Date().toISOString().split("T")[0]}`,
-    domain: process.env.EMAIL_DOMAIN,
   },
   news: {
     apiKey: process.env.NEWS_API_KEY,
@@ -28,6 +27,7 @@ export default {
     },
   },
   settings: {
+    appUrl: process.env.APP_URL,
     sendEmail: process.env.SEND_EMAIL,
   },
 }

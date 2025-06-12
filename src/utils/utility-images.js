@@ -1,3 +1,0 @@
-// optimiseJpg
-
-// fileToBase64

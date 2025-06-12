@@ -9,10 +9,10 @@ export function generateEmailTemplate(data) {
   const sections = []
 
   // Only add sections that have data
-  if (weather) {
+  if (weather && weather.imageUrl) {
     sections.push(`
             <h2>Weather Forecast</h2>
-            <img src="${weather.base64}" alt="Weather Forecast" style="max-width: 100%; height: auto;">
+            <img src="${weather.imageUrl}" alt="Weather Forecast" style="max-width: 100%; height: auto;">
         `)
   }
   if (news) {

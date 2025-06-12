@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename)
 async function getWeather() {
   try {
     // Create assets directory if it doesn't exist
-    const assetsDir = path.join(__dirname, "..", "public", "assets")
+    const assetsDir = path.join(process.cwd(), "public", "assets")
     if (!fs.existsSync(assetsDir)) {
       fs.mkdirSync(assetsDir, { recursive: true })
     }
@@ -57,14 +57,11 @@ async function getWeather() {
     // Save the file
     fs.writeFileSync(screenshotPath, optimizedBuffer)
 
-    // Convert to base64
-    const base64String = optimizedBuffer.toString("base64")
-
     await browser.close()
 
     return {
       filePath: screenshotPath,
-      base64: `data:image/jpeg;base64,${base64String}`,
+      imageUrl: `${process.env.APP_URL}/assets/weather-tile.jpg`,
     }
   } catch (error) {
     console.error("Weather Screenshot Error:", error.message)

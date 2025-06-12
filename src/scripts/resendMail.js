@@ -2,7 +2,7 @@
 
 import fs from "fs"
 import path from "path"
-import EmailService from "./services/email.js"
+import EmailService from "../services/email.js"
 
 async function resendLatestEmail() {
   try {

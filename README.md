@@ -17,3 +17,17 @@ It can take a while to send the email and return a response.
 ## Development
 
 
+## Testing
+
+```bash
+npm run test:weather
+npm run test:rss
+npm run test:news
+npm run test:crypto
+npm run test:calendar
+npm run test:email-template
+npm run test:send-email
+
+#or
+npm run test:all
+```
